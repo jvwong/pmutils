@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 import { program } from 'commander';
 import { download as doDownload } from './download.js';
-import { compile } from './xslt.js';
+import { compile, transform } from './xslt.js';
 import { write, print } from './io.js';
 
 
@@ -34,9 +34,15 @@ async function main () {
     .description('A CLI to perform various data processing jobs for NCBI EUTILS output');
 
   program.command('compile')
-    .option('-s, --stylebase <file>', 'The name of the XSLT stylesheet')
-    .description('Compile a XSLT stylesheet to json format')
+    .option('-s, --stylebase <file>', 'The name of the XSLT stylesheet (without extension)')
+    .description('Compile a XSLT stylesheet to sef.json format')
     .action(compile);
+
+  program.command('transform')
+    .option('-s, --stylebase <file>', 'The name of the XSLT stylesheet (without extension)')
+    .option('-i, --input <file>', 'The name of the XML file to transform (without extension)')
+    .description('Transform an XML doc using an XSLT stylesheet')
+    .action(transform);
 
   program.command('download')
     .argument('<string>', 'PubMed IDs (comma or space separated)')

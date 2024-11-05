@@ -21,6 +21,24 @@
       "type": "node"
     },
     {
+      "name": "Transform",
+      "request": "launch",
+      "program": "${workspaceFolder}/pmutils.js",
+      "args": [
+        "transform",
+        "-s",
+        "pubmed",
+        "-i",
+        "ncb_2024"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "console": "integratedTerminal",
+      "runtimeVersion": "20.11.0",
+      "type": "node"
+    },
+    {
       "name": "Download",
       "request": "launch",
       "program": "${workspaceFolder}/pmutils.js",
