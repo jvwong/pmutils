@@ -1,0 +1,30 @@
+{
+  "name": "pmutils",
+  "version": "1.0.0",
+  "description": "A CLI to perform various data processing jobs for NCBI EUTILS output",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "util",
+    "cli",
+    "pubmed"
+  ],
+  "author": "jvwong",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "lodash": "^4.17.21",
+    "saxon-js": "^2.7.0",
+    "xslt3": "^2.7.0"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.2.2",
+    "@eslint/js": "^9.14.0",
+    "eslint": "^9.14.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^6.0.1"
+  },
+  "type": "module"
+}
