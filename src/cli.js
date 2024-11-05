@@ -1,12 +1,9 @@
 #! /usr/bin/env node
-import fs from 'fs';
-import { writeFile } from 'fs/promises';
 import { program } from 'commander';
 import { download as doDownload } from './download.js';
+import { compile } from './xslt.js';
+import { write, print } from './io.js';
 
-// const readFile = promisify(fs.readFile);
-const print = str => console.log(str);
-export const write = async (data, file) => await writeFile(file, data);
 
 export async function sendOutput (data, options) {
   if ( options.output ) {
@@ -32,17 +29,20 @@ export async function download (id, options) {
 }
 
 async function main () {
-  (program
+  program
     .name('pmutils')
-    .description('A CLI to perform various data processing jobs for NCBI EUTILS output')
-  );
+    .description('A CLI to perform various data processing jobs for NCBI EUTILS output');
 
-  (program.command('download')
+  program.command('compile')
+    .option('-s, --stylebase <file>', 'The name of the XSLT stylesheet')
+    .description('Compile a XSLT stylesheet to json format')
+    .action(compile);
+
+  program.command('download')
     .argument('<string>', 'PubMed IDs (comma or space separated)')
     .option('-o, --output <file>', 'Data file (standard output by default)')
-    .description('Command line scripts')
-    .action(download)
-  );
+    .description('Download a PubMed article set')
+    .action(download);
 
   await program.parseAsync();
 }

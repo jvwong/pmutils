@@ -5,14 +5,30 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Compile",
+      "request": "launch",
+      "program": "${workspaceFolder}/pmutils.js",
+      "args": [
+        "compile",
+        "-s",
+        "pubmed"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "console": "integratedTerminal",
+      "runtimeVersion": "20.11.0",
+      "type": "node"
+    },
+    {
       "name": "Download",
       "request": "launch",
       "program": "${workspaceFolder}/pmutils.js",
       "args": [
         "download",
-        // "-o",
-        // "/Users/jeffreywong/Projects/scratch/pmutils/data/output.xml",
-        "39080410 39009641"
+        "-o",
+        "/Users/jeffreywong/Projects/scratch/pmutils/data/output.xml",
+        "39174742 39160291 39147874 39138317 39117797 39117796 39117795 39080411 39080410 39009641 38997456 38918597"
       ],
       "skipFiles": [
         "<node_internals>/**"

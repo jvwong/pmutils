@@ -4,7 +4,6 @@ import _ from 'lodash';
 const EUTILS_BASE_URL = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/';
 const EFETCH_PATH = 'efetch.fcgi';
 
-
 async function safeFetch (url, options) {
   const failOnBadStatus = res => {
     if (!res.ok) {
