@@ -16,6 +16,7 @@
   "dependencies": {
     "commander": "^12.1.0",
     "lodash": "^4.17.21",
+    "node-fetch": "^3.3.2",
     "saxon-js": "^2.7.0",
     "xslt3": "^2.7.0"
   },
