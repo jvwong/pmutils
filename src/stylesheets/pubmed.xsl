@@ -104,7 +104,7 @@
 
   <xsl:template name="default-cell">
     <td>
-      <xsl:value-of select="'-'"/>
+      <xsl:value-of select="''"/>
     </td>
   </xsl:template>
 
