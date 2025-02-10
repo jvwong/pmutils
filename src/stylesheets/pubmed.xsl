@@ -65,13 +65,28 @@
   </xsl:template>
 
   <xsl:template match="History">
-    <xsl:apply-templates select="PubMedPubDate"/>
+    <xsl:variable name="numPubmedDate" select="count(PubMedPubDate[@PubStatus='pubmed'])"/>
+    <xsl:variable name="numAcceptedDate" select="count(PubMedPubDate[@PubStatus='accepted'])"/>
+    <xsl:choose>
+      <xsl:when test="$numPubmedDate > 0">
+        <xsl:apply-templates select="PubMedPubDate[@PubStatus='pubmed']"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="default-cell"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:choose>
+      <xsl:when test="$numAcceptedDate > 0">
+        <xsl:apply-templates select="PubMedPubDate[@PubStatus='accepted']"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="default-cell"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="PubMedPubDate">
-    <xsl:if test="@PubStatus='accepted' or @PubStatus='pubmed'">
-      <xsl:call-template name="pub-date"/>
-    </xsl:if>
+    <xsl:call-template name="pub-date"/>
   </xsl:template>
 
   <xsl:template name="pub-date">
@@ -84,6 +99,12 @@
     <td>
       <xsl:value-of select="$date"/>
       <!-- <xsl:value-of select="format-date(xs:date($date), '[Y0001]-[D]-[D01]')"/> -->
+    </td>
+  </xsl:template>
+
+  <xsl:template name="default-cell">
+    <td>
+      <xsl:value-of select="'-'"/>
     </td>
   </xsl:template>
 

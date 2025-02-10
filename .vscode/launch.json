@@ -29,7 +29,7 @@
         "-s",
         "pubmed",
         "-i",
-        "ncb_2024"
+        "ncb_v26-iss12_12-2024"
       ],
       "skipFiles": [
         "<node_internals>/**"
@@ -45,8 +45,8 @@
       "args": [
         "download",
         "-o",
-        "/Users/jeffreywong/Projects/scratch/pmutils/data/output.xml",
-        "39174742 39160291 39147874 39138317 39117797 39117796 39117795 39080411 39080410 39009641 38997456 38918597"
+        "/Users/jeffreywong/Projects/scratch/pmutils/data/ncb_v26-iss12_12-2024.xml",
+        "39548330 39548329 39537753 39528700 39516639 39511380 39511379 39506072 39482359 39472512 39448802 39433949 39251719"
       ],
       "skipFiles": [
         "<node_internals>/**"
