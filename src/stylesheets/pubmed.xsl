@@ -14,9 +14,9 @@
       <body style="font-family: sans-serif;">
         <table border="1px">
           <tr>
-            <th>Journal</th>
             <th>Volume</th>
             <th>Issue</th>
+            <th>Journal</th>
             <th>Title</th>
             <th>Accepted</th>
             <th>PubMed</th>
@@ -68,16 +68,16 @@
     <xsl:variable name="numPubmedDate" select="count(PubMedPubDate[@PubStatus='pubmed'])"/>
     <xsl:variable name="numAcceptedDate" select="count(PubMedPubDate[@PubStatus='accepted'])"/>
     <xsl:choose>
-      <xsl:when test="$numPubmedDate > 0">
-        <xsl:apply-templates select="PubMedPubDate[@PubStatus='pubmed']"/>
+      <xsl:when test="$numAcceptedDate > 0">
+        <xsl:apply-templates select="PubMedPubDate[@PubStatus='accepted']"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:call-template name="default-cell"/>
       </xsl:otherwise>
     </xsl:choose>
     <xsl:choose>
-      <xsl:when test="$numAcceptedDate > 0">
-        <xsl:apply-templates select="PubMedPubDate[@PubStatus='accepted']"/>
+      <xsl:when test="$numPubmedDate > 0">
+        <xsl:apply-templates select="PubMedPubDate[@PubStatus='pubmed']"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:call-template name="default-cell"/>
